@@ -84,9 +84,18 @@ public class ZoomService extends AccessibilityService {
     }
 
     private void setBtnColor(int color) {
-        GradientDrawable bg = new GradientDrawable();
+        GradientDrawable bg;
+        if (color == 0xCC2E7D32) {
+            // actif : dégradé vert
+            bg = new GradientDrawable(GradientDrawable.Orientation.TL_BR,
+                    new int[]{0xF243A047, 0xF21B5E20});
+        } else {
+            // inactif : dégradé violet/bleu
+            bg = new GradientDrawable(GradientDrawable.Orientation.TL_BR,
+                    new int[]{0xF26C3BF7, 0xF22196F3});
+        }
         bg.setShape(GradientDrawable.OVAL);
-        bg.setColor(color);
+        bg.setStroke(3, 0x66FFFFFF);
         floatingBtn.setBackground(bg);
         floatingBtn.setTextColor(Color.WHITE);
     }
