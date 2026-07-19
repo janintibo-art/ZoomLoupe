@@ -68,7 +68,7 @@ public class MainActivity extends Activity {
                 "Un bouton 🔍 apparaît sur l'écran. Vous pouvez le déplacer où vous voulez en le faisant glisser."));
 
         root.addView(carte("3️⃣  Zoomer",
-                "Touchez le bouton → il devient vert 🟢 :\n• Pincez à 2 doigts pour zoomer (jusqu'à ×6)\n• Glissez à 1 doigt pour déplacer la vue\n\nRetouchez le bouton pour reprendre le contrôle normal de l'écran."));
+                "Touchez le bouton → il devient vert 🟢 :\n• Pincez à 2 doigts pour zoomer\n• Glissez à 1 doigt pour déplacer la vue\n• Barre − / ×1 / + en bas de l'écran\n• Double-tap à 2 doigts : bascule ×1 ↔ dernier zoom\n• Double-tap sur le bouton 🔍 : retour ×1\n\nAstuce : ajoutez la tuile Zoom Loupe dans vos paramètres rapides !"));
 
         // Bouton principal
         Button btn = new Button(this);
@@ -91,8 +91,25 @@ public class MainActivity extends Activity {
         pBtn.topMargin = dp(20);
         root.addView(btn, pBtn);
 
+        Button btnSettings = new Button(this);
+        btnSettings.setText("🎛  Réglages");
+        btnSettings.setTextSize(16);
+        btnSettings.setTextColor(0xFF64B5F6);
+        btnSettings.setAllCaps(false);
+        GradientDrawable bg2 = new GradientDrawable();
+        bg2.setColor(0x00000000);
+        bg2.setCornerRadius(dp(28));
+        bg2.setStroke(dp(1), 0xFF2E2E42);
+        btnSettings.setBackground(bg2);
+        btnSettings.setOnClickListener(v ->
+                startActivity(new Intent(this, SettingsActivity.class)));
+        LinearLayout.LayoutParams pBtn2 = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT, dp(52));
+        pBtn2.topMargin = dp(10);
+        root.addView(btnSettings, pBtn2);
+
         TextView version = new TextView(this);
-        version.setText("v1.1 • sans pub, sans internet");
+        version.setText("v1.2 • sans pub, sans internet");
         version.setTextSize(12);
         version.setTextColor(0xFF55556A);
         version.setGravity(Gravity.CENTER);
