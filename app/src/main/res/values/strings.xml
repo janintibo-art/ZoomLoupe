@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Zoom Loupe</string>
+    <string name="service_desc">Permet de zoomer tout l\'écran avec un pincement à 2 doigts. Appuyez sur le bouton flottant 🔍 pour activer/désactiver le mode zoom.</string>
+</resources>
